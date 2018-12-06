@@ -13,6 +13,15 @@ const actions = {
         const { token } = rootState.auth // Allows to reach out to the root state of Vue instance
         const response = await api.fetchImages(token);
         commit("setImages", response.data.data);
+    },
+    async uploadImages({ rootState }, images) {
+        // Get the access token
+        const { token } = rootState.auth;
+
+        // Call our API module to do the upload
+        await api.upload(images, token);
+
+        // Reditect user to ImageList component
     }
 };
 
