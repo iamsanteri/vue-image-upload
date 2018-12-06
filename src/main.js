@@ -7,13 +7,12 @@ import AuthHandler from "./components/AuthHandler";
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    routes: [
-        { path: "/oauth2/callback", component: AuthHandler }
-    ]
+    mode: "history",
+    routes: [{ path: "/oauth2/callback", component: AuthHandler }]
 });
 
 new Vue({
-    router, // Shortcut for router: router
+    router, // Shortcut for key value pair router: router
     store,
     render: h => h(App)
 }).$mount("#app");
